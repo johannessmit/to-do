@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Domain\Todo\Models\Todo;
-use Domain\User\Models\User;
+use Domain\Todo\Todo;
+use Domain\User\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
