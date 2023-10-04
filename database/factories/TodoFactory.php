@@ -1,9 +1,9 @@
 <?php
 
-namespace Database\Factories\Todo;
+namespace Database\Factories;
 
-use App\Models\Todo\Priority;
-use App\Models\Todo\Todo;
+use Domain\Todo\Models\Todo;
+use Domain\Todo\Priority;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

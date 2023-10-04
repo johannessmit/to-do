@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Todo;
+namespace Domain\Todo;
 
 enum Priority: string
 {
