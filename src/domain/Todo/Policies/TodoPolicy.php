@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Policies;
+namespace Domain\Todo\Policies;
 
-use App\Models\Todo\Todo;
-use App\Models\User;
+use Domain\Todo\Models\Todo;
+use Domain\User\Models\User;
 
 class TodoPolicy
 {
