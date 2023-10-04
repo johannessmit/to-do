@@ -1,9 +1,8 @@
 <?php
 
-namespace Domain\Todo\Models;
+namespace Domain\Todo;
 
-use Domain\Todo\Priority;
-use Domain\User\Models\User;
+use Domain\User\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

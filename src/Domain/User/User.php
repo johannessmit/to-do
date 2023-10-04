@@ -1,9 +1,9 @@
 <?php
 
-namespace Domain\User\Models;
+namespace Domain\User;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Domain\Todo\Models\Todo;
+use Domain\Todo\Todo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;

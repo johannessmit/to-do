@@ -2,8 +2,8 @@
 
 namespace Domain\Todo\Policies;
 
-use Domain\Todo\Models\Todo;
-use Domain\User\Models\User;
+use Domain\Todo\Todo;
+use Domain\User\User;
 
 class TodoPolicy
 {

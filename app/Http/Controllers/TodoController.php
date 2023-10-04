@@ -4,16 +4,31 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTodoRequest;
 use App\Http\Requests\UpdateTodoRequest;
-use Domain\Todo\Models\Todo;
+use Domain\Todo\Todo;
+use Domain\Todo\TodoRepository;
+use Illuminate\Auth\AuthManager;
 
 class TodoController extends Controller
 {
+    public function __construct(
+        private readonly TodoRepository $todoRepository,
+        private readonly AuthManager $authManager
+    )
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $todos = $this->todoRepository->getAllByUserId(
+            $this->authManager->id()
+        );
 
+        return view('todos.index', [
+            'todos' => $todos
+        ]);
     }
 
     /**
@@ -21,7 +36,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        //
+        return view('todos.create');
     }
 
     /**
@@ -29,7 +44,15 @@ class TodoController extends Controller
      */
     public function store(StoreTodoRequest $request)
     {
-        //
+        $this->todoRepository->store(
+            new Todo([
+                'user_id' => $this->authManager->id(),
+                'todo' => $request->todo,
+                'due_date' => $request->due_date,
+            ])
+        );
+
+        return to_route('todos.index');
     }
 
     /**
@@ -45,7 +68,7 @@ class TodoController extends Controller
      */
     public function edit(Todo $todo)
     {
-        //
+        return view('todos.edit', ['todo' => $todo]);
     }
 
     /**
@@ -53,7 +76,14 @@ class TodoController extends Controller
      */
     public function update(UpdateTodoRequest $request, Todo $todo)
     {
-        //
+        $todo->todo = $request->todo;
+        $todo->due_date = $request->due_date;
+
+        $this->todoRepository->store($todo);
+
+        return to_route('todos.edit', [
+            'todo' => $todo
+        ]);
     }
 
     /**

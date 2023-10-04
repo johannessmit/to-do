@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use Domain\Todo\Models\Todo;
 use Domain\Todo\Priority;
+use Domain\Todo\Todo;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
